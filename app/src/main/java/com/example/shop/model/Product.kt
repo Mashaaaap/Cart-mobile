@@ -5,5 +5,6 @@ data class Product (
     var name: String,
     var description: String,
     var price: Double,
-    var images: List<String>?
+    var images: List<String>?,
+    var isFavorite: Boolean = false
 )
