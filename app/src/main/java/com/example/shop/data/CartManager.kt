@@ -19,4 +19,8 @@ object CartManager {
     fun getTotalPrice() : Double {
         return items.sumOf{it.price}
     }
+
+    fun cartClear() {
+        items.clear()
+    }
 }
