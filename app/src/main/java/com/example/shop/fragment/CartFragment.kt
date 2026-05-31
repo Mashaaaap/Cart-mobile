@@ -56,7 +56,7 @@ class CartFragment : Fragment() {
         }
 
         adapter = CartAdapter(
-            products = CartManager.getAll(),
+            products = CartManager.getAll() as MutableList,
             onRemove = { product ->
                 CartManager.remove(product)
                 adapter.notifyDataSetChanged()
@@ -69,5 +69,11 @@ class CartFragment : Fragment() {
 
     private fun updateTotal() {
         tvTotal.text = "Разом: ${CartManager.getTotalPrice()} грн"
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
+        updateTotal()
     }
 }

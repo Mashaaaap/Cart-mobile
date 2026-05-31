@@ -12,7 +12,7 @@ import com.example.shop.model.Product
 import android.view.LayoutInflater
 
 class CartAdapter (
-    private val products: List<Product>,
+    private val products: MutableList<Product>,
     private val onRemove: (Product) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

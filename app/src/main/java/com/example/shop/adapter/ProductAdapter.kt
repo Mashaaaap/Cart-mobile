@@ -39,6 +39,11 @@ class ProductAdapter(
         val product = products[position]
         holder.tvName.text = product.name
         holder.tvPrice.text = "${product.price} грн"
+        if (product.isFavorite) {
+            holder.btnFavorite.setImageResource(android.R.drawable.btn_star_big_on)  // ⭐ активна
+        } else {
+            holder.btnFavorite.setImageResource(android.R.drawable.btn_star_big_off) // ☆ неактивна
+        }
         holder.btnFavorite.setOnClickListener {
             onFavorite(product)
         }

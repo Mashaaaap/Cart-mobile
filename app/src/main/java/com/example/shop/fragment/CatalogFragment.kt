@@ -45,6 +45,12 @@ class CatalogFragment : Fragment() {
             },
             onFavorite = { product ->
                 product.isFavorite = !product.isFavorite
+                if (product.isFavorite) {
+                    Toast.makeText(requireContext(), "${product.name} додано до обраного", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "${product.name} видалено з обраного", Toast.LENGTH_SHORT).show()
+                }
+                adapter.notifyDataSetChanged()
             }
         )
         recyclerView.adapter = adapter
